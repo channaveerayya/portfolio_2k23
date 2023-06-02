@@ -85,12 +85,12 @@ export default function Particles({
       dy,
       magnetism,
     }
-  }, [])
+  }, [color])
 
   const drawCircle = useCallback(
     (circle: Circle, update = false) => {
       if (context.current) {
-        const { x, y, translateX, translateY, size, alpha,color } = circle
+        const { x, y, translateX, translateY, size,color } = circle
         context.current.translate(translateX, translateY)
         context.current.beginPath()
         context.current.arc(x, y, size, 0, 2 * Math.PI)

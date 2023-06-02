@@ -1,14 +1,15 @@
 
 import { useEffect, useState } from 'react';
 import type { AppProps } from 'next/app'
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { ThemeProvider } from '@mui/material/styles';
 import Layout from 'components/layout';
 import {darkTheme} from "../src/themes/darkTheme"
 import {lightTheme} from "../src/themes/lightTheme"
 
 
 function getActiveTheme(themeMode: 'light' | 'dark') {
-  return themeMode === 'light' ? lightTheme : darkTheme;
+  return themeMode !== 'light' ? lightTheme : darkTheme;
 }
 
 function MyApp({ Component, pageProps }: AppProps) {
@@ -27,6 +28,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <ThemeProvider theme={activeTheme}>
+        <CssBaseline />
       <Layout><Component {...pageProps} toggleTheme={toggleTheme} /></Layout>
     </ThemeProvider>
   )

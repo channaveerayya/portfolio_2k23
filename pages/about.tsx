@@ -9,7 +9,6 @@ import Link from 'next/link';
 export default function Index(props) {
   const t = useTheme()
   const isPresent = useIsPresent()
-  console.log(t.palette.primary.main, props)
   return (
     <Container maxWidth="sm">
       <Box sx={{ my: 4 }}>
@@ -33,11 +32,11 @@ export default function Index(props) {
         style={{
           originX: isPresent ? 1 : 0,
           position: "fixed",
-          top: 0,
+          top: "4rem",
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundColor: t.palette.primary.main,
+          backgroundColor: t.palette.color?.drawerBackground,
           zIndex: 2,
         }}
       />
